@@ -2,7 +2,7 @@ name: Auto Collect Proxies
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每 24 小时自动运行一次
+    - cron: '0 */12 * * *'  # 每 12 小时自动运行一次
   workflow_dispatch:       # 允许手动点击运行
 
 jobs:
