@@ -25,4 +25,4 @@ jobs:
         PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
       run: |
         # 注意：把下一行的 你的用户名 和 你的GistID 替换成真实信息！
-        python subscribe/collect.py -g dabaobei7517/0e8c71adc816629c1f5d5e9e7afa6c13 -k $PUSH_TOKEN -t clash v2ray
+        python subscribe/collect.py -g dabaobei7517/0e8c71adc816629c1f5d5e9e7afa6c13 -k $PUSH_TOKEN -t clash v2ray -n 128
