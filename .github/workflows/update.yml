@@ -1,0 +1,28 @@
+name: Auto Collect Proxies
+
+on:
+  schedule:
+    - cron: '0 */24 * * *'  # 每 24 小时自动运行一次
+  workflow_dispatch:       # 允许手动点击运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Collector
+      env:
+        PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      run: |
+        # 注意：把下一行的 你的用户名 和 你的GistID 替换成真实信息！
+        python subscribe/collect.py -g 你的用户名/你的GistID -k $PUSH_TOKEN -t clash v2ray
